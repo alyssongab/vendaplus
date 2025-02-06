@@ -5,11 +5,11 @@
         </a>
     </section>
 
-    <div class="container bg-secondary d-flex flex-column justify-content-center align-items-center mt-3">
+    <div class="text-light container d-flex flex-column justify-content-center align-items-center mt-3">
         <h2 class="mt-3">Registrar venda</h2>
 
 
-        <div class="form-container w-75">
+        <div class="form-container w-50">
             <div class="form-wrapper">
                 <form method="post">
 
