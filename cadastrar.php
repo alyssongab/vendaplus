@@ -19,13 +19,13 @@ include __DIR__.'/includes/formulario.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Venda Registrada</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <p>A venda foi registrada com sucesso!</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
