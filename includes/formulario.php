@@ -11,7 +11,7 @@
 
         <div class="form-container w-50">
             <div class="form-wrapper">
-                <form method="post">
+                <form id="form-venda" method="post">    
 
                     <!-- input produtos -->
                     <div class="form-group mt-3">
@@ -59,5 +59,22 @@
             </div>
         </div>
     </div>
-
 </main>
+
+<!-- Modal -->
+<div class="modal fade" id="modalVenda" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Venda Registrada</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>A venda foi registrada com sucesso!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
