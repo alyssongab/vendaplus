@@ -38,13 +38,13 @@
                         <div>
                             <div class="px-0 form-check form-check-inline">
                                 <label class="form-control">
-                                    <input type="radio" name="status" value="S"> Pago
+                                    <input type="radio" name="status" id="status" value="S"> Pago
                                 </label>
                             </div>
                             
                             <div class="form-check form-check-inline">
                                 <label class="form-control">
-                                    <input type="radio" name="status" value="N" checked> Pendente
+                                    <input type="radio" name="status" id="status" value="N" checked> Pendente
                                 </label>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                             
                     <!-- registrar a venda -->
                     <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-success">Registrar</button>
+                        <button id="registrar" type="button" class="btn btn-success">Registrar</button>
                     </div>
 
                 </form>
