@@ -7,3 +7,16 @@
     </section>
 
 </main>
+
+<?php
+
+/* 
+include('../db/conexao.php');
+
+if(conectar() != null){
+    echo "banco conectado";
+}
+else{
+    echo "deu ruim";
+}
+*/
