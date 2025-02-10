@@ -8,9 +8,9 @@
     <div class="text-light container d-flex flex-column justify-content-center align-items-center mt-3">
         <h2 class="mt-3">Registrar venda</h2>
 
-
-        <div class="form-container w-50">
-            <div class="form-wrapper">
+        <!-- Container do formulário -->
+        <div class="form-container pb-4 w-50">
+           
                 <form id="form-venda" method="post">    
 
                     <!-- input produtos -->
@@ -57,6 +57,6 @@
 
                 </form>
             </div>
-        </div>
+       
     </div>
 </main>
