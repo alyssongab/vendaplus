@@ -14,7 +14,7 @@ include __DIR__.'/includes/formulario.php';
 ?>
 
 <!-- modal de confirmação de registro -->
-<div class="modal fade" id="modalVenda" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="modalVenda" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content bg-dark text-light">
       <div class="modal-header">
@@ -28,7 +28,7 @@ include __DIR__.'/includes/formulario.php';
         <p></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Fechar</button>
+        <button id="close-modal" type="button" class="btn btn-success" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
@@ -39,41 +39,54 @@ include __DIR__.'/includes/footer.php';
 ?>
 
 <script>
-  <?php if ($cadastroSucesso): ?>
-    
-  const produtos = document.getElementById('produtos').value;
-  const valor = parseFloat(document.getElementById('valor')).value;
-  const cliente = document.getElementById('cliente').value;
-  const status = document.getElementById('status').value;
-  const data = {
-    Produtos: produtos,
-    Valor: valor,
-    Cliente: cliente,
-    Status: status
-  };
+
+  const btn = document.getElementById('registrar');
+  const form = document.getElementById('form-venda');
+  const close = document.getElementById('close-modal');
   
-  // resgata id do modal
-  var modal = new bootstrap.Modal(document.getElementById('modalVenda'));
-  var subcontent = document.getElementById('modal-subcontent');
+  btn.addEventListener("click", function(e){
+    e.preventDefault();
+    
+    const formData = new FormData(form);
 
-  document.getElementById("form-venda").addEventListener("submit", function(event){
-    event.preventDefault(); // Impede o envio padrão do formulário
+    fetch('processa_venda.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json()) // transforma a resposta em json
+    .then(data => {
+      const modal = new bootstrap.Modal(document.getElementById('modalVenda'));
+      const subcontent = document.getElementById('modal-subcontent');
 
-    // Limpa o conteúdo anterior do modal
-    subcontent.innerHTML = '';
+      subcontent.innerHTML = ''; // limpa o conteudo anterior
 
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        const value = data[key];
-        const p = document.createElement('p'); // Cria um elemento <p>
-        p.textContent = `${key}: ${value}`; // Define o texto do parágrafo
-        subcontent.appendChild(p); // Adiciona o parágrafo à div subcontent
+      // mostra a chave e valor dos dados recebidos
+      if(data.cadastroSucesso){
+        for(const key in data.data){
+          const value = data.data[key];
+          const p = document.createElement('p');
+          p.textContent = `${key}: ${value}`;
+          subcontent.appendChild(p);
+        }
+        modal.show();
       }
-    }
-
-    modal.show();
+      else{
+        subcontent.innerHTML = '<p>Erro ao registrar venda</p>';
+        modal.show();
+      }
+    })
+    .catch(error => {
+      console.error('Erro: ', error);
+      const modal = new bootstrap.Modal(document.getElementById('modalVenda'));
+      const subcontent = document.getElementById('modal-subcontent');
+      subcontent.innerHTML = '<p>Erro ao processar requisição</p>';
+    })
 
   });
-  <?php endif; ?>
+
+  // recarrega a pagina depois de registrar a venda
+  close.addEventListener("click", function(){
+    window.location.reload();
+  })
 </script>
 

@@ -8,12 +8,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cadastroSucesso = true;
         
         // sanitiza os dados
-        $produtos = htmlspecialchars($_POST['prodtutos']);
+        $produtos = htmlspecialchars($_POST['produtos']);
         $valor = floatval($_POST['valor']);
         $cliente = htmlspecialchars($_POST['cliente']);
         $status = htmlspecialchars($_POST['status']);
 
-        $dados = [
+        $data = [
             'Produtos' => $produtos,
             'Valor' => $valor,
             'Cliente' => $cliente,
