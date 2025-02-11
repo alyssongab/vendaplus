@@ -23,3 +23,39 @@
     </section>
 
 </main>
+
+<script>
+
+    function listarVendas(){
+        const tbody = document.querySelector('tbody');
+        fetch("../controller/lista_controller.php", {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+             }
+        })
+        .then(response => response.json())
+        .then(data => {
+            tbody.innerHTML = '';
+
+            // itera os dados recebidos e adiciona novas linhas na tabela
+            data.forEach(venda => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${venda.data_venda}</td>
+                    <td>${venda.cliente}</td>
+                    <td>${venda.produtos}</td>
+                    <td>${venda.valor}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.log("Erro: ", error);
+        });
+    
+    }
+
+    window.onload = listarVendas();
+
+</script>
