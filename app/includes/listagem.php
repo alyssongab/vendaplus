@@ -1,7 +1,7 @@
 <main>
 
     <section class="mt-3">
-        <a href="cadastrar.php">
+        <a href="app/view/cadastrar.php">
             <button class="btn btn-success">Nova venda</button>
         </a>
     </section>
