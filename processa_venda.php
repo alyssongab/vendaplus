@@ -1,5 +1,7 @@
 <?php
 
+use Venda;
+
 $cadastroSucesso = false;
 $dados = [];
 
@@ -13,12 +15,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cliente = htmlspecialchars($_POST['cliente']);
         $status = htmlspecialchars($_POST['status']);
 
+         // cria uma nova instância da classe Venda e registra a venda
+         $obVenda = new Venda;
+         $obVenda->produtos = $produtos;
+         $obVenda->valor = $valor;
+         $obVenda->cliente = $cliente;
+         $obVenda->status_venda = $status;
+ 
+         // realiza o cadastro
+         $obVenda->cadastrar();
+
         $data = [
             'Produtos' => $produtos,
             'Valor' => $valor,
             'Cliente' => $cliente,
             'Status' => $status
         ];
+    }
+    else {
+        $cadastroSucesso = false;
     }
     
     // retorna como json

@@ -7,6 +7,7 @@ $cadastroSucesso = false;
 // valida os dados do post
 if (isset($_POST['produtos'], $_POST['valor'], $_POST['cliente'], $_POST['status'])) {
     $cadastroSucesso = true;
+    $data = ['erro' => 'Campos obrigatórios não preenchidos'];
 }
 
 include __DIR__.'/includes/header.php';
@@ -55,6 +56,7 @@ include __DIR__.'/includes/footer.php';
     })
     .then(response => response.json()) // transforma a resposta em json
     .then(data => {
+      console.log(data);
       const modal = new bootstrap.Modal(document.getElementById('modalVenda'));
       const subcontent = document.getElementById('modal-subcontent');
 
@@ -69,6 +71,11 @@ include __DIR__.'/includes/footer.php';
           subcontent.appendChild(p);
         }
         modal.show();
+        // Redireciona após mostrar o modal
+        setTimeout(() => {
+        window.location.href = "index.php?status=success";
+        }, 2000);
+
       }
       else{
         subcontent.innerHTML = '<p>Erro ao registrar venda</p>';

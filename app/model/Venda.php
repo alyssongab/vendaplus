@@ -1,5 +1,7 @@
 <?php
 
+use Conexao;
+
 class Venda{
 
     /**
@@ -12,7 +14,13 @@ class Venda{
      * Produtos listados na venda
      * @var string
      */
-    public $prdutos;
+    public $produtos;
+
+    /**
+     * Valor da venda
+     * @var float
+     */
+    public $valor;
 
     /**
      * Cliente que comprou o(s) produto(s)
@@ -39,16 +47,20 @@ class Venda{
      */
     public function cadastrar(){
         // DEFINIR A DATA
-        $this->data_venda = date('Y-m-d H:i:"s');
+        $this->data_venda = date('Y-m-d H:i:s');
 
         // INSERIR VENDA NO BANCO
         $obDatabase = new Conexao('vendas');
-        echo "<pre>"; print_r($obDatabase); echo "</pre>"; exit;
-
-        // ATRIBUIR O ID DA VAGA NA INSTANCIA
-
+        $this->id_venda = $obDatabase->insert([
+                                                'produtos' => $this->produtos,
+                                                'valor' => $this->valor,
+                                                'cliente' => $this->cliente,
+                                                'status_venda' => $this->status_venda,
+                                                'data_venda' => $this->data_venda
+                                            ]);
 
         // RETORNAR SUCESSO
+        return true;
     }
 
 }
