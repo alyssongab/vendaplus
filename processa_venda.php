@@ -1,6 +1,6 @@
 <?php
 
-use Venda;
+require_once __DIR__ . '/app/model/Venda.php';
 
 $cadastroSucesso = false;
 $dados = [];

@@ -1,6 +1,7 @@
 <?php
 
-use Conexao;
+require_once __DIR__ . '/../db/Conexao.php';
+
 
 class Venda{
 
