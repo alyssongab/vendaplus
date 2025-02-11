@@ -1,6 +1,6 @@
 <main>
     <section class="mt-3">
-        <a href="index.php">
+        <a href="../../index.php">
             <button class="btn btn-success">Voltar</button>
         </a>
     </section>

@@ -84,6 +84,17 @@ class Conexao{
         
     }
 
+    /**
+     * Método responsável por listar todas as vendas
+     * @return array
+     */
+    public function getAll(){
+        // query para listagem
+        $query = 'SELECT data_venda, cliente, produtos, valor FROM vendas';
+        $this->execute($query);
+        
+    }
+
 }
 
 

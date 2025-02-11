@@ -10,6 +10,12 @@
         min-height: 50px;
         resize: none;
       }
+
+      .hd {
+        background-color: #023e8a;
+        color: white;
+      }
+
     </style>
   </head>
   <body class="bg-dark">
