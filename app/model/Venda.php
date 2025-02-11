@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Entity;
-
 class Venda{
 
     /**
@@ -33,5 +31,24 @@ class Venda{
      * @var string
      */
     public $data_venda;
+
+
+    /**
+     * Método responsável por cadastrar uma nova venda no banco
+     * @return boolean
+     */
+    public function cadastrar(){
+        // DEFINIR A DATA
+        $this->data_venda = date('Y-m-d H:i:"s');
+
+        // INSERIR VENDA NO BANCO
+        $obDatabase = new Conexao('vendas');
+        echo "<pre>"; print_r($obDatabase); echo "</pre>"; exit;
+
+        // ATRIBUIR O ID DA VAGA NA INSTANCIA
+
+
+        // RETORNAR SUCESSO
+    }
 
 }
