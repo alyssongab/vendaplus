@@ -38,7 +38,7 @@ class Conexao{
 
             $this->conn = new PDO("mysql:host=localhost;dbname=vplus", self::USER, self::PASSWORD);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+            return $this->conn;
         }
         catch(PDOException $e){
             die('Erro: '.$e->getMessage());
