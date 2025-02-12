@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /vendaplus/
+
+  # Se a requisição for para um arquivo ou diretório existente, não faça nada
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Redireciona /venda para app/view/cadastrar.php
+  RewriteRule ^venda$ app/view/cadastrar.php [L]
+
+  # Redireciona /vendas para app/includes/listagem.php
+  RewriteRule ^vendas$ app/includes/listagem.php [L]
+</IfModule>

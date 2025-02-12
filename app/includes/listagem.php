@@ -1,7 +1,7 @@
 <main>
 
     <section class="mt-3">
-        <a href="app/view/cadastrar.php">
+        <a href="/vendaplus/venda">
             <button class="btn btn-success">Nova venda</button>
         </a>
     </section>
@@ -29,7 +29,7 @@
     function listarVendas(){
         const tbody = document.querySelector('tbody');
         fetch("../controller/lista_controller.php", {
-            method: 'POST',
+            method: 'GET',
             headers: {
             'Content-Type': 'application/json'
              }

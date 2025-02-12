@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../model/Venda.php';
 
 $cadastroSucesso = false;
-$dados = [];
+$data = [];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['produtos'], $_POST['valor'], $_POST['cliente'], $_POST['status'])){
@@ -42,4 +42,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit;
 }
 
-?>
+
