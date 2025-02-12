@@ -64,4 +64,9 @@ class Venda{
         return true;
     }
 
+    public function listar(){
+        $obDatabase = new Conexao('vendas');
+        $dados = array();
+    }
+
 }
