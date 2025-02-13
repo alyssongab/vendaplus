@@ -41,7 +41,7 @@ class Conexao{
             return $this->conn;
         }
         catch(PDOException $e){
-            die('Erro: '.$e->getMessage());
+            die('Erroq na conexao com o banco: '.$e->getMessage());
         }
 
     }
@@ -88,10 +88,20 @@ class Conexao{
      * Método responsável por listar todas as vendas
      * @return array
      */
-    public function getAll(){
-        // query para listagem
-        $query = 'SELECT data_venda, cliente, produtos, valor FROM vendas';
-        $this->execute($query);
+    public function select($where = null, $order = null, $limit = null){
+        // parametros opcionais
+        $where = $where != null ? 'WHERE ' . $where : '';
+        $order = $order != null ? 'ORDER BY ' . $where : '';
+        $limit = $limit != null ? 'LIMIT ' . $limit : ''; 
+
+        // monta a query
+        $query = 'SELECT data_venda, cliente, produtos, valor FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
+        
+        // executa a query
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
         
     }
 

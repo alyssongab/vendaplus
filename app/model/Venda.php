@@ -64,9 +64,11 @@ class Venda{
         return true;
     }
 
-    public function listar(){
+    public function listar($where = null, $order = null, $limit = null){
         $obDatabase = new Conexao('vendas');
         $dados = array();
+        $obDatabase->select($where, $order, $limit);
+
     }
 
 }
