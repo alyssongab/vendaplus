@@ -48,6 +48,7 @@ class Venda{
      */
     public function cadastrar(){
         // DEFINIR A DATA
+        date_default_timezone_set('America/Manaus'); // Define o timezone para Manaus
         $this->data_venda = date('Y-m-d H:i:s');
 
         // INSERIR VENDA NO BANCO
@@ -77,6 +78,16 @@ class Venda{
         $obDatabase = new Conexao('vendas');
         $statement = $obDatabase->select($where, $order, $limit);
         $dados = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        // Formata a data e hora para d/m/Y H:i:s
+        foreach ($dados as &$dado) {
+            $data_hora_utc = new DateTime($dado['data_venda']);
+
+            $timezone = new DateTimeZone('America/Manaus');
+            $data_hora_utc->setTimezone($timezone);
+
+            $dado['data_venda'] = $data_hora_utc->format('d/m/Y H:i:s');
+        }
         
         return $dados;
 

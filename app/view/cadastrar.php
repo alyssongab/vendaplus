@@ -50,7 +50,7 @@ include __DIR__.'/../includes/footer.php';
     
     const formData = new FormData(form);
 
-    fetch('../controller/processa_venda.php', {
+    fetch('app/controller/processa_venda.php', {
       method: 'POST',
       body: formData
     })
