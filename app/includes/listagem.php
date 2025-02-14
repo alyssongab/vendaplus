@@ -28,7 +28,7 @@
 
     function listarVendas(){
         const tbody = document.querySelector('tbody');
-        fetch("../controller/lista_controller.php", {
+        fetch("app/controller/lista_controller.php", {
             method: 'GET',
             headers: {
             'Content-Type': 'application/json'

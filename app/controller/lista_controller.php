@@ -17,7 +17,7 @@ $vendas = $venda->listar();
 // Verifica se a consulta retornou resultados
 if ($vendas) {
     // Converte os resultados para JSON e envia como resposta
-    // echo json_encode($vendas);
+    echo json_encode($vendas);
 } else {
     // Se não houver vendas, retorna um array vazio em JSON
     echo json_encode([]);

@@ -64,10 +64,21 @@ class Venda{
         return true;
     }
 
+
+     /**
+     * Método responsável por obter as vendas do banco
+     * @param  string $where
+     * @param  string $order
+     * @param  string $limit
+     * @return array
+     */
     public function listar($where = null, $order = null, $limit = null){
+        //INSTANCIA DA CONEXAO
         $obDatabase = new Conexao('vendas');
-        $dados = array();
-        $obDatabase->select($where, $order, $limit);
+        $statement = $obDatabase->select($where, $order, $limit);
+        $dados = $statement->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $dados;
 
     }
 

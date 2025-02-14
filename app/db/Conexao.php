@@ -86,7 +86,7 @@ class Conexao{
 
     /**
      * Método responsável por listar todas as vendas
-     * @return array
+     * @return object
      */
     public function select($where = null, $order = null, $limit = null){
         // parametros opcionais
