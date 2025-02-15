@@ -87,6 +87,8 @@ class Venda{
             $data_hora_utc->setTimezone($timezone);
 
             $dado['data_venda'] = $data_hora_utc->format('d/m/Y H:i:s');
+            $num = number_format($dado['valor'], 2, ',', '.');
+            $dado['valor'] = $num;
         }
         
         return $dados;
