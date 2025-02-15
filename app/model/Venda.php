@@ -70,17 +70,18 @@ class Venda{
     }
 
 
-     /**
-     * Método responsável por obter as vendas do banco
+      /**
+     * Método responsável por obter as vendas do banco com paginação
      * @param  string $where
      * @param  string $order
-     * @param  string $limit
+     * @param  int $limit
+     * @param  int $offset
      * @return array
      */
-    public function listar($where = null, $order = null, $limit = null){
+    public function listar($where = null, $order = null, $limit = null, $offset = null) {
         //INSTANCIA DA CONEXAO
         $obDatabase = new Conexao('vendas');
-        $statement = $obDatabase->select($where, $order, $limit);
+        $statement = $obDatabase->select($where, $order, $limit, $offset);
         $dados = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         // Formata a data e hora para d/m/Y H:i:s
@@ -101,7 +102,16 @@ class Venda{
         }
         
         return $dados;
+    }
 
+    /**
+     * Método responsável por contar o total de vendas
+     * @return int
+     */
+    public function contarTotal() {
+        $obDatabase = new Conexao('vendas');
+        $result = $obDatabase->execute('SELECT COUNT(*) as total FROM vendas')->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
     }
 
     /**

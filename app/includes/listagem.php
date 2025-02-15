@@ -24,15 +24,17 @@
                 </tbody>
             </table>
         </div>
+        <div id="pagination" class="pagination"></div>
     </section>
 
 </main>
 
 <script>
+    let paginaAtual = 1
 
-    function listarVendas(){
+    function listarVendas(page = 1){
         const tbody = document.querySelector('tbody');
-        fetch("app/controller/lista_controller.php", {
+        fetch(`app/controller/lista_controller.php?page=${page}`, {
             method: 'GET',
             headers: {
             'Content-Type': 'application/json'
@@ -43,7 +45,7 @@
             tbody.innerHTML = '';
 
             // itera os dados recebidos e adiciona novas linhas na tabela
-            data.forEach(venda => {
+            data.vendas.forEach(venda => {
                 // variaveis para o input radio
                 let pago = venda.status_venda === 'Pago' ? "checked" : "";
                 let pendente = venda.status_venda === 'Pagamento pendente' ? "checked" : "";
@@ -96,6 +98,24 @@
                     });
                 })
             })
+
+            // atualiza a paginação
+            const pagination = document.querySelector("#pagination");
+            pagination.innerHTML = '';
+            for(let i = 1; i <= data.totalPaginas; i++){
+                const pageLink = document.createElement('a');
+                pageLink.href = '#';
+                pageLink.innerText = i;
+                pageLink.classList.add('page-link');
+                if(i === data.paginaAtual){
+                    pageLink.classList.add('active');
+                }
+                pageLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    listarVendas(i);
+                })
+                pagination.appendChild(pageLink);
+            }
         })
         .catch(error => {
             console.log("Erro: ", error);
@@ -103,6 +123,6 @@
     
     }
 
-    window.onload = listarVendas();
+    window.onload = () => listarVendas();
 
 </script>

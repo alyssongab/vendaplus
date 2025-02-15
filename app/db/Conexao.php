@@ -88,14 +88,15 @@ class Conexao{
      * Método responsável por listar todas as vendas
      * @return object
      */
-    public function select($where = null, $order = null, $limit = null){
+    public function select($where = null, $order = null, $limit = null, $offset = null){
         // parametros opcionais
         $where = $where != null ? 'WHERE ' . $where : '';
-        $order = $order != null ? 'ORDER BY ' . $where : '';
+        $order = $order != null ? 'ORDER BY ' . $order : '';
         $limit = $limit != null ? 'LIMIT ' . $limit : ''; 
+        $offset = $offset != null ? 'OFFSET ' . $offset : '';
 
         // monta a query
-        $query = 'SELECT * FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
+        $query = 'SELECT * FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit . ' ' . $offset;
         
         // executa a query
         $stmt = $this->conn->prepare($query);
