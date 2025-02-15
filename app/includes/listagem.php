@@ -6,20 +6,23 @@
         </a>
     </section>
 
-    <section id="listagem" class="mt-3 container">
-        <table id="tabela-vendas" class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Data da venda</th>
-                    <th scope="col">Cliente</th>
-                    <th scope="col">Produtos</th>
-                    <th scope="col">Valor</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
+    <section id="listagem" class="mt-3 table-container">
+        <!-- tabela -->
+        <div class="table-responsive">
+            <table id="tabela-vendas" class="table table-striped table-bordered table-hover text-center align-middle text-break">
+                <thead class="table-info">
+                    <tr>
+                        <th scope="col">Data da venda</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Produtos</th>
+                        <th scope="col">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
     </section>
 
 </main>
