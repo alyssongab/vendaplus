@@ -95,7 +95,7 @@ class Conexao{
         $limit = $limit != null ? 'LIMIT ' . $limit : ''; 
 
         // monta a query
-        $query = 'SELECT data_venda, cliente, produtos, valor FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
+        $query = 'SELECT * FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
         
         // executa a query
         $stmt = $this->conn->prepare($query);

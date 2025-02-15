@@ -16,6 +16,7 @@
                         <th scope="col">Cliente</th>
                         <th scope="col">Produtos</th>
                         <th scope="col">Valor</th>
+                        <th scope="col">Status da venda</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,12 +44,23 @@
 
             // itera os dados recebidos e adiciona novas linhas na tabela
             data.forEach(venda => {
+                // variaveis para o input radio
+                let pago = venda.status_venda === 'Pago' ? "checked" : "";
+                let pendente = venda.status_venda === 'Pagamento pendente' ? "checked" : "";
+     
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${venda.data_venda}</td>
                     <td>${venda.cliente}</td>
                     <td>${venda.produtos}</td>
-                    <td>${venda.valor}</td>
+                    <td>R$ ${venda.valor}</td>
+                    <td>
+                        <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pago-${venda.id_venda}" autocomplete="off" ${pago}>
+                        <label class="btn btn-outline-success" for="pago-${venda.id_venda}">Pago</label>
+
+                        <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pendente-${venda.id_venda}" autocomplete="off" ${pendente}>
+                        <label class="btn btn-outline-danger" for="pendente-${venda.id_venda}">Pendente</label>
+                    </td>
                 `;
                 tbody.appendChild(row);
             });

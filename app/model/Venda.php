@@ -41,6 +41,10 @@ class Venda{
      */
     public $data_venda;
 
+    public function __construct()
+    {
+        date_default_timezone_set('America/Manaus');
+    }
 
     /**
      * Método responsável por cadastrar uma nova venda no banco
@@ -48,7 +52,7 @@ class Venda{
      */
     public function cadastrar(){
         // DEFINIR A DATA
-        date_default_timezone_set('America/Manaus'); // Define o timezone para Manaus
+        // Define o timezone para Manaus
         $this->data_venda = date('Y-m-d H:i:s');
 
         // INSERIR VENDA NO BANCO
@@ -82,13 +86,18 @@ class Venda{
         // Formata a data e hora para d/m/Y H:i:s
         foreach ($dados as &$dado) {
             $data_hora_utc = new DateTime($dado['data_venda']);
-
+            
+            // altera o formato da data
             $timezone = new DateTimeZone('America/Manaus');
             $data_hora_utc->setTimezone($timezone);
-
             $dado['data_venda'] = $data_hora_utc->format('d/m/Y H:i:s');
+            
+            // altera o formato do valor (casas milenares e decimais)
             $num = number_format($dado['valor'], 2, ',', '.');
             $dado['valor'] = $num;
+
+            // altera o status da venda (pago ou pendente)
+            $dado['status_venda'] = $dado['status_venda'] == 'S' ? "Pago" : "Pagamento pendente";
         }
         
         return $dados;
