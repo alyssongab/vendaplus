@@ -55,15 +55,47 @@
                     <td>${venda.produtos}</td>
                     <td>R$ ${venda.valor}</td>
                     <td>
-                        <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pago-${venda.id_venda}" autocomplete="off" ${pago}>
-                        <label class="btn btn-outline-success" for="pago-${venda.id_venda}">Pago</label>
+                        <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pago-${venda.id_venda}" autocomplete="off" value="S" ${pago}>
+                        <label id="S" class="btn btn-outline-success labelz" for="pago-${venda.id_venda}">Pago</label>
 
-                        <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pendente-${venda.id_venda}" autocomplete="off" ${pendente}>
-                        <label class="btn btn-outline-danger" for="pendente-${venda.id_venda}">Pendente</label>
+                        <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pendente-${venda.id_venda}" autocomplete="off" value="N" ${pendente}>
+                        <label id="N" class="btn btn-outline-danger labelz" for="pendente-${venda.id_venda}">Pendente</label>
                     </td>
                 `;
                 tbody.appendChild(row);
             });
+            
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', function(){
+                    // corta 'venda' do name paga pegar apenas o id e mandar pro backend
+                    const idVenda = this.name.replace('venda-', '');
+                    // pega o value do status (Pago ou Pag. Pendente)
+                    const statusVenda = this.value;
+                    fetch('app/controller/edita_controller.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            id_venda: idVenda,
+                            status_venda: statusVenda
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if(data.success){
+                            console.log('status atualizado', data);
+                        }
+                        if(data.erro){
+                            console.log('erro: ', data.erro);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro ao atualizar o status:', error);
+                    });
+                })
+            })
         })
         .catch(error => {
             console.log("Erro: ", error);

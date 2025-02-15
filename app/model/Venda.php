@@ -104,4 +104,43 @@ class Venda{
 
     }
 
+    /**
+     * Método responsável por editar status da venda
+     * @return boolean
+     */
+    public function editar($idVenda, $statusVenda){
+        // Verifica se o ID da venda é um número inteiro válido
+        if (!is_numeric($idVenda) || intval($idVenda) <= 0) {
+            return false;
+        }
+    
+        // Verifica se o status da venda é um valor válido
+        if ($statusVenda !== 'S' && $statusVenda !== 'N') {
+            return false;
+        }
+    
+        try {
+            // Instancia a conexão com o banco de dados
+            $obDatabase = new Conexao('vendas');
+    
+            // Define os valores para atualizar
+            $values = [
+                'status_venda' => $statusVenda
+            ];
+    
+            // Define a condição WHERE
+            $where = 'id_venda = ' . intval($idVenda); // Garante que o ID seja um inteiro
+    
+            // Executa a atualização
+            $success = $obDatabase->update($where, $values);
+    
+            // Retorna o resultado da atualização
+            return $success;
+        } catch (Exception $e) {
+            // Em caso de erro, registra o erro e retorna false
+            error_log('Erro ao editar status da venda: ' . $e->getMessage());
+            return false;
+        }
+    }
+
 }

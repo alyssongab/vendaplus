@@ -105,6 +105,23 @@ class Conexao{
         
     }
 
+    /**
+     * Método responsável por editar dados no banco
+     * @return boolean
+     */
+    public function update($where, $values){
+        
+        // Monta a query
+        $fields = array_keys($values);
+        $query = 'UPDATE '.$this->table.' SET '.implode('=?,',$fields).'=? WHERE '.$where;
+        
+        // executa a query (update)
+        $stmt = $this->conn->prepare($query);
+        $success = $stmt->execute(array_values($values));
+
+        return $success;
+    }
+
 }
 
 
