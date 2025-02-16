@@ -16,6 +16,39 @@
         color: white;
       }
 
+      .table{
+        --bs-table-hover-bg:rgb(197, 214, 240);
+      }
+
+      @media (max-width: 768px) {
+      #tabela-vendas thead {
+          display: none; /* Oculta o cabeçalho da tabela */
+      }
+
+      #tabela-vendas tbody tr {
+          display: block; /* Transforma cada linha em um bloco */
+          margin-bottom: 0.5rem; /* Adiciona um espaço entre as linhas */
+          border: 1px solid #ddd; /* Adiciona uma borda para melhor visualização */
+      }
+
+      #tabela-vendas td {
+          display: block; /* Transforma cada célula em um bloco */
+          text-align: right; /* Alinha o texto à direita */
+          border-bottom: 1px dotted #ddd; /* Adiciona uma borda inferior pontilhada */
+      }
+
+      #tabela-vendas td:last-child {
+          border-bottom: none; /* Remove a borda da última célula */
+      }
+
+      #tabela-vendas td::before {
+          content: attr(data-label); /* Exibe o conteúdo do atributo data-label */
+          float: left; /* Alinha o texto à esquerda */
+          text-transform: uppercase; /* Transforma o texto em maiúsculas */
+          font-weight: bold; /* Define o texto como negrito */
+      }
+    }
+
     </style>
   </head>
   <body class="bg-dark">

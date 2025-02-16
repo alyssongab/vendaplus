@@ -2,13 +2,13 @@
 
     <section class="mt-3">
         <a href="/vendaplus/venda">
-            <button class="btn btn-success">Nova venda</button>
+            <button class="btn btn-success"> + Nova venda</button>
         </a>
     </section>
 
     <section id="listagem" class="mt-3 table-container">
         <!-- tabela -->
-        <div class="table-responsive">
+        <div class="table-responsive" style="min-height: 350px;">
             <table id="tabela-vendas" class="table table-striped table-bordered table-hover text-center align-middle text-break">
                 <thead class="table-info">
                     <tr>
@@ -24,13 +24,17 @@
                 </tbody>
             </table>
         </div>
-        <div id="pagination" class="pagination"></div>
+        <div class="pagination-container">
+            <div id="pagination" class="pagination"></div>
+        </div>
     </section>
 
 </main>
 
 <script>
     let paginaAtual = 1
+    const registrosPorPagina = 5; // Defina o número máximo de registros que você quer exibir
+    const alturaLinha = 40; // Altura aproximada de cada linha da tabela
 
     function listarVendas(page = 1){
         const tbody = document.querySelector('tbody');
@@ -52,11 +56,11 @@
      
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${venda.data_venda}</td>
-                    <td>${venda.cliente}</td>
-                    <td>${venda.produtos}</td>
-                    <td>R$ ${venda.valor}</td>
-                    <td>
+                    <td data-label="Data da venda">${venda.data_venda}</td>
+                    <td data-label="Cliente">${venda.cliente}</td>
+                    <td data-label="Produtos">${venda.produtos}</td>
+                    <td data-label="Valor">R$ ${venda.valor}</td>
+                    <td data-label="Status da venda">
                         <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pago-${venda.id_venda}" autocomplete="off" value="S" ${pago}>
                         <label id="S" class="btn btn-outline-success labelz" for="pago-${venda.id_venda}">Pago</label>
 
@@ -66,6 +70,21 @@
                 `;
                 tbody.appendChild(row);
             });
+
+
+            // Adiciona linhas vazias para preencher a tabela
+            const linhasAtuais = data.vendas.length;
+            for (let i = linhasAtuais; i < registrosPorPagina; i++) {
+                const emptyRow = document.createElement('tr');
+                emptyRow.innerHTML = `
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                `;
+                tbody.appendChild(emptyRow);
+            }
             
             const radios = document.querySelectorAll('input[type="radio"]');
             radios.forEach(radio => {
