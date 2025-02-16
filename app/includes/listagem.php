@@ -24,8 +24,9 @@
                 </tbody>
             </table>
         </div>
-        <div class="pagination-container">
+        <div class="pagination-container d-flex flex-column align-items-end">
             <div id="pagination" class="pagination"></div>
+            <p class="text-light pt-2" id="pag"></p>
         </div>
     </section>
 
@@ -35,6 +36,7 @@
     let paginaAtual = 1
     const registrosPorPagina = 5; // Defina o número máximo de registros que você quer exibir
     const alturaLinha = 40; // Altura aproximada de cada linha da tabela
+    const whichPage = document.getElementById("pag");
 
     function listarVendas(page = 1){
         const tbody = document.querySelector('tbody');
@@ -73,18 +75,18 @@
 
 
             // Adiciona linhas vazias para preencher a tabela
-            const linhasAtuais = data.vendas.length;
-            for (let i = linhasAtuais; i < registrosPorPagina; i++) {
-                const emptyRow = document.createElement('tr');
-                emptyRow.innerHTML = `
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                `;
-                tbody.appendChild(emptyRow);
-            }
+            // const linhasAtuais = data.vendas.length;
+            // for (let i = linhasAtuais; i < registrosPorPagina; i++) {
+            //     const emptyRow = document.createElement('tr');
+            //     emptyRow.innerHTML = `
+            //         <td>&nbsp;</td>
+            //         <td>&nbsp;</td>
+            //         <td>&nbsp;</td>
+            //         <td>&nbsp;</td>
+            //         <td>&nbsp;</td>
+            //     `;
+            //     tbody.appendChild(emptyRow);
+            // }
             
             const radios = document.querySelectorAll('input[type="radio"]');
             radios.forEach(radio => {
@@ -134,6 +136,7 @@
                     listarVendas(i);
                 })
                 pagination.appendChild(pageLink);
+                whichPage.textContent = `Mostrando página ${paginaAtual} de ${data.totalPaginas}`;
             }
         })
         .catch(error => {
