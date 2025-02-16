@@ -136,7 +136,7 @@
                     listarVendas(i);
                 })
                 pagination.appendChild(pageLink);
-                whichPage.textContent = `Mostrando página ${paginaAtual} de ${data.totalPaginas}`;
+                whichPage.textContent = `Mostrando página ${data.paginaAtual} de ${data.totalPaginas}`;
             }
         })
         .catch(error => {
