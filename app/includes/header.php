@@ -49,6 +49,27 @@
       }
     }
 
+    @media (max-width: 768px) {
+      #tabela-vendas {
+          font-size: 0.8rem; /* Reduz o tamanho da fonte */
+      }
+
+      #tabela-vendas td,
+      #tabela-vendas th {
+          padding: 0.5rem; /* Reduz o espaçamento interno */
+      }
+
+      #nova-venda{
+        padding: 5;
+        font-size: 0.83rem;
+        width: 7rem;
+      }
+
+      .btn-check{
+        font-size: 0.8rem;
+      }
+    }
+
     </style>
   </head>
   <body class="bg-dark">

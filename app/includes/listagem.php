@@ -2,7 +2,7 @@
 
     <section class="mt-3">
         <a href="/vendaplus/venda">
-            <button class="btn btn-success"> + Nova venda</button>
+            <button id="nova-venda" class="btn btn-success"> + Nova venda</button>
         </a>
     </section>
 
