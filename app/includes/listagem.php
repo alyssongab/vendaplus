@@ -1,9 +1,18 @@
 <main>
 
-    <section class="mt-3">
-        <a href="/vendaplus/venda">
+    <section class="mt-3 d-flex align-items-center justify-content-between">
+        <a href="/vendaplus/venda" style="text-decoration: none;">
             <button id="nova-venda" class="btn btn-success"> + Nova venda</button>
         </a>
+        <div class="form-group d-flex gap-1">
+            <input id="pesquisa-input" type="text" class="form-control" placeholder="Pesquisar por cliente" style="width: 60%;">
+            <button id="pesquisa" type="button" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+                </svg>
+                Pesquisar
+              </button>
+        </div>
     </section>
 
     <section id="listagem" class="mt-3 table-container">
