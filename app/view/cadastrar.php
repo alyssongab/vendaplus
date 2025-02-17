@@ -2,11 +2,11 @@
 
 require __DIR__.'/../../vendor/autoload.php';
 
-$cadastroSucesso = false;
+$cadastroSucesso = true;
 
 // valida os dados do post
-if (isset($_POST['produtos'], $_POST['valor'], $_POST['cliente'], $_POST['status'])) {
-    $cadastroSucesso = true;
+if (!isset($_POST['produtos'], $_POST['valor'], $_POST['cliente'], $_POST['status'])) {
+    $cadastroSucesso = false;
     $data = ['erro' => 'Campos obrigatórios não preenchidos'];
 }
 
@@ -25,7 +25,7 @@ include __DIR__.'/../includes/formulario.php';
       <div class="modal-body">
         <p>A venda foi registrada com sucesso!</p>
       </div>
-      <div class="p-2" id="modal-subcontent">
+      <div class="p-3" id="modal-subcontent">
         <p></p>
       </div>
       <div class="modal-footer">
@@ -64,8 +64,15 @@ include __DIR__.'/../includes/footer.php';
 
       // mostra a chave e valor dos dados recebidos
       if(data.cadastroSucesso){
-        for(const key in data.data){
-          const value = data.data[key];
+        for(let key in data.data){
+          let value = data.data[key];
+
+          // modifica o valor do status para "Pago" ou "Pagamento pendente"
+          if (key === 'Status_venda') {
+            key = 'Status da venda';
+            value = value === 'S' ? 'Pago' : 'Pagamento pendente';
+          }
+
           const p = document.createElement('p');
           p.textContent = `${key}: ${value}`;
           subcontent.appendChild(p);
