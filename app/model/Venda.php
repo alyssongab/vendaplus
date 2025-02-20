@@ -153,4 +153,40 @@ class Venda{
         }
     }
 
+        /**
+     * Método responsável por buscar vendas por nome do cliente
+     * @param string $customerName
+     * @param string $order
+     * @param string $limit
+     * @param string $offset
+     * @return array
+     */
+    public function getByCustomer($customerName, $order = null, $limit = null, $offset = null) {
+        // Instancia a conexão com o banco de dados
+        $obDatabase = new Conexao('vendas');
+
+        // Utiliza o método getByCustomer da classe Conexao para buscar as vendas
+        $statement = $obDatabase->getByCustomer($customerName, $order, $limit, $offset);
+        $dados = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        // Formata a data e hora para d/m/Y H:i:s
+        foreach ($dados as &$dado) {
+            $data_hora_utc = new DateTime($dado['data_venda']);
+            
+            // altera o formato da data
+            $timezone = new DateTimeZone('America/Manaus');
+            $data_hora_utc->setTimezone($timezone);
+            $dado['data_venda'] = $data_hora_utc->format('d/m/Y H:i:s');
+            
+            // altera o formato do valor (casas milenares e decimais)
+            $num = number_format($dado['valor'], 2, ',', '.');
+            $dado['valor'] = $num;
+
+            // altera o status da venda (pago ou pendente)
+            $dado['status_venda'] = $dado['status_venda'] == 'S' ? "Pago" : "Pagamento pendente";
+        }
+
+        return $dados;
+    }
+
 }

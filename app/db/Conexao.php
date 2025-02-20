@@ -123,6 +123,22 @@ class Conexao{
         return $success;
     }
 
+    /**
+     * Método responsável por filtrar por nome do cliente
+     * @param string $customerName
+     * @param string $order
+     * @param string $limit
+     * @param string $offset
+     * @return PDOStatement
+     */
+    public function getByCustomer($customerName = null, $order = null, $limit = null, $offset = null){
+        $customerName = $this->conn->quote('%'. strtolower($customerName) . '%');
+
+        $where = 'LOWER(cliente) LIKE ' . $customerName;
+
+        return $this->select($where, $order, $limit, $offset);
+    }
+
 }
 
 

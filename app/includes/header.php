@@ -68,13 +68,14 @@
       .btn-check{
         font-size: 0.8rem;
       }
+
     }
 
     </style>
   </head>
   <body class="bg-dark">
         <div class=" p-3 text-light bg-gradient" style="background-color: #023e8a;">
-            <h1>VPlus</h1>
+            <h1><a href="/vendaplus/" style="text-decoration: none; color:#ddd";>VPlus</a></h1>
             <!-- <h5>Sistema para gestão de vendas</h5> -->
         </div>
  

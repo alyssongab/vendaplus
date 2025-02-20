@@ -46,10 +46,18 @@
     const registrosPorPagina = 5; // Defina o número máximo de registros que você quer exibir
     const alturaLinha = 40; // Altura aproximada de cada linha da tabela
     const whichPage = document.getElementById("pag");
+    
+    // botao para pesquisar cliente
+    const pesquisaInput = document.getElementById("pesquisa-input");
+    const pesquisaButton = document.getElementById("pesquisa");
 
-    function listarVendas(page = 1){
+    function listarVendas(page = 1, customerName = null){
         const tbody = document.querySelector('tbody');
-        fetch(`app/controller/lista_controller.php?page=${page}`, {
+        let url = `app/controller/lista_controller.php?page=${page}`;
+        if(customerName){
+            url += `&customerName=${customerName}`;
+        }
+        fetch(url, {
             method: 'GET',
             headers: {
             'Content-Type': 'application/json'
@@ -153,6 +161,11 @@
         });
     
     }
+
+    pesquisaButton.addEventListener('click', () => {
+        const customerName = pesquisaInput.value;
+        listarVendas(1, customerName);
+    });
 
     window.onload = () => listarVendas();
 
