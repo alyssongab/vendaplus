@@ -73,11 +73,10 @@
     </style>
   </head>
   <body class="bg-dark">
-
-    <div class="container">
-
-        <div class="mt-3 p-4 text-light bg-gradient" style="background-color: #023e8a;">
+        <div class=" p-3 text-light bg-gradient" style="background-color: #023e8a;">
             <h1>VPlus</h1>
             <!-- <h5>Sistema para gestão de vendas</h5> -->
         </div>
  
+    <div class="container">
+     
