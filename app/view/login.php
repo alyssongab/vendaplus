@@ -21,7 +21,7 @@
         }
 
         #login-box{
-            width: 30%;
+            width: 35%;
         }
 
         .btn{
@@ -86,12 +86,12 @@
             <div class="col-md-6">
                 <div id="img-box" class="row">
                     <span class="spn" style="display: none;">Faça seu login</span>
-                    <img src="../assets/login.svg" alt="login-illustration">
+                    <img src="app/assets/login.svg" alt="login-illustration">
                 </div>             
             </div>
             <div id="img-container" class="col-md-6 text-center">
                 <!-- titulo -->
-                <div id="login-box" class="row mt-3">
+                <div id="login-box" class="text-start px-3 row mt-3">
                     <h3 class="border-bottom border-primary-subtle">VPlus</h1>
                 </div>
                 <!-- form -->
@@ -108,11 +108,16 @@
                     </div>
                     <!-- submit -->
                      <div class="form-group">
-                        <button class="btn btn-primary w-100">Entrar</button>
+                        <button id="login-btn" type="button" class="btn btn-primary w-100">Entrar</button>
                      </div>
                 </div>
             </div>
         </main>
     </div>
+    <script>
+
+        const login = document.getElementById("login-btn")
+
+    </script>
 </body>
 </html>

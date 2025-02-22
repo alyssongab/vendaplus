@@ -1,3 +1,4 @@
+<?php require_once('header.php') ?>
 <main>
 
     <section class="mt-3 d-flex align-items-center justify-content-between">
@@ -72,21 +73,29 @@
                 // variaveis para o input radio
                 let pago = venda.status_venda === 'Pago' ? "checked" : "";
                 let pendente = venda.status_venda === 'Pagamento pendente' ? "checked" : "";
-     
                 const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td data-label="Data da venda">${venda.data_venda}</td>
-                    <td data-label="Cliente">${venda.cliente}</td>
-                    <td data-label="Produtos">${venda.produtos}</td>
-                    <td data-label="Valor">R$ ${venda.valor}</td>
-                    <td data-label="Status da venda">
-                        <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pago-${venda.id_venda}" autocomplete="off" value="S" ${pago}>
-                        <label id="S" class="btn btn-outline-success labelz" for="pago-${venda.id_venda}">Pago</label>
+     
+                if(venda != null){
+                    row.innerHTML = `
+                        <td data-label="Data da venda">${venda.data_venda}</td>
+                        <td data-label="Cliente">${venda.cliente}</td>
+                        <td data-label="Produtos">${venda.produtos}</td>
+                        <td data-label="Valor">R$ ${venda.valor}</td>
+                        <td data-label="Status da venda">
+                            <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pago-${venda.id_venda}" autocomplete="off" value="S" ${pago}>
+                            <label id="S" class="btn btn-outline-success labelz" for="pago-${venda.id_venda}">Pago</label>
 
-                        <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pendente-${venda.id_venda}" autocomplete="off" value="N" ${pendente}>
-                        <label id="N" class="btn btn-outline-danger labelz" for="pendente-${venda.id_venda}">Pendente</label>
-                    </td>
-                `;
+                            <input type="radio" class="btn-check" name="venda-${venda.id_venda}" id="pendente-${venda.id_venda}" autocomplete="off" value="N" ${pendente}>
+                            <label id="N" class="btn btn-outline-danger labelz" for="pendente-${venda.id_venda}">Pendente</label>
+                        </td>
+                    `;
+                }
+                else{
+                    row.innerHTML=`
+                        <p class="text-center"> Não há vendas cadastradas no sistema. </p>
+                    `
+                }
+                
                 tbody.appendChild(row);
             });
 

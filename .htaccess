@@ -12,4 +12,9 @@
 
   # Redireciona /vendas para app/includes/listagem.php
   RewriteRule ^vendas$ app/includes/listagem.php [L]
+
+  RewriteRule ^login$ app/view/login.php [L]
+
+  # Especifica que index.php deve ser carregado por padrão
+  DirectoryIndex index.php
 </IfModule>

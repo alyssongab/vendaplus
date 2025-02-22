@@ -1,6 +1,6 @@
 <main>
     <section class="mt-3">
-        <a href="/vendaplus">
+        <a href="/vendaplus/vendas">
             <button class="btn btn-success">Voltar</button>
         </a>
     </section>
