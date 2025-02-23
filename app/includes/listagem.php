@@ -1,4 +1,4 @@
-<?php session_start(); require_once 'header.php' ?>
+<?php session_start(); require_once 'header.php';?>
 <main>
 
     <section id="above-table" class="mt-3 d-flex align-items-center justify-content-between">
@@ -98,21 +98,6 @@
                 
                 tbody.appendChild(row);
             });
-
-
-            // Adiciona linhas vazias para preencher a tabela
-            // const linhasAtuais = data.vendas.length;
-            // for (let i = linhasAtuais; i < registrosPorPagina; i++) {
-            //     const emptyRow = document.createElement('tr');
-            //     emptyRow.innerHTML = `
-            //         <td>&nbsp;</td>
-            //         <td>&nbsp;</td>
-            //         <td>&nbsp;</td>
-            //         <td>&nbsp;</td>
-            //         <td>&nbsp;</td>
-            //     `;
-            //     tbody.appendChild(emptyRow);
-            // }
             
             const radios = document.querySelectorAll('input[type="radio"]');
             radios.forEach(radio => {
@@ -176,6 +161,34 @@
         listarVendas(1, customerName);
     });
 
+    // fazer logout do sistema
+    const logout = document.getElementById("logout-btn");
+
+    logout.addEventListener("click", function(){
+        
+        fetch("app/controller/auth_controller.php?action=logout", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success){
+                console.log(data.message);
+                window.location.href = "login";
+            }
+            else{
+                console.log(data.message);
+            }
+        })
+        .catch((error) =>{
+            console.error("Fetch error: ", error);
+        })
+    })
+
     window.onload = () => listarVendas();
 
 </script>
+
+<?php require_once 'footer.php';  ?>

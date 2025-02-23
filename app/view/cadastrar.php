@@ -100,3 +100,4 @@ include __DIR__.'/../includes/footer.php';
   })
 </script>
 
+<?php require_once ('../includes/footer.php') ?>

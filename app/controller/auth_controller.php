@@ -37,7 +37,7 @@ if ($_GET['action'] === 'login') {
                 echo json_encode(['status'=> $status,'message'=> $messagem, 'data'=> $data]);
             }
             else {
-                $messagem = "Falha em autenticar o usuário! => if(usuario)";
+                $messagem = "Falha ao fazer login: Credenciais incorretas ou inválidas!";
                 echo json_encode(['status'=> $status,'message'=> $messagem]);
             }
         }
@@ -53,9 +53,9 @@ if ($_GET['action'] === 'login') {
 }
 
 if ($_GET['action'] === 'logout') {
-    session_destroy();
+    Usuario::logout();
     $status = true;
     $messagem = 'Logout realizado';
-    echo json_encode(['status'=> $status,'message'=> $message]);
+    echo json_encode(['status'=> $status,'message'=> $messagem]);
 }
 
