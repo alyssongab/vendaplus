@@ -6,6 +6,11 @@
     <title>Autenticação</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
+
+        .alert{
+            display: none;
+        }
+
         .container{
             width: 60%;
             margin: 0 auto; /* Adiciona margem automática horizontal */
@@ -91,6 +96,7 @@
             </div>
             <div id="img-container" class="col-md-6 d-flex flex-column justify-content-center text-center">
                 <!-- titulo -->
+                <span class="alert alert-danger" role="alert"></span>
                 <div id="login-box" class="text-start px-3 row mt-3">
                     <h3 class="border-bottom border-primary-subtle">VPlus</h1>
                 </div>
@@ -116,7 +122,46 @@
     </div>
     <script>
 
-        const login = document.getElementById("login-btn")
+        const login = document.getElementById('login-btn');
+        const alerta = document.querySelector('.alert');
+
+        login.addEventListener("click", function() {
+            
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value.trim();
+
+            if (email === "" || senha === "") {
+               alerta.style.display = "block";
+               alerta.textContent = "Preencha todos os campos!";
+               return;
+            }
+
+            fetch("app/controller/auth_controller.php?action=login", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email: email, senha: senha})
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+
+                if(data.status){
+                    console.log(data.message);
+                    window.location.href = "/vendaplus/vendas"
+                }
+                else{
+                    alerta.style.display = "block";
+                    alerta.textContent = data.message
+                }
+            })
+            .catch((error) => { // Corrigido o erro de sintaxe
+                console.error("Fetch error: ", error);
+                alertElement.style.display = "block"; // Exibe o alerta
+                alertElement.textContent = "Erro durante o login. Tente novamente."; // Mensagem de erro
+            });
+        });
 
     </script>
 </body>

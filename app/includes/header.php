@@ -69,14 +69,27 @@
         font-size: 0.8rem;
       }
 
+      #header{
+        font-size: 0.8rem;
+      }
+
+      #logout-btn{
+        font-size: 0.8rem;
+      }
+
     }
 
     </style>
   </head>
   <body class="bg-dark">
-        <div class=" p-3 text-light bg-gradient" style="background-color: #023e8a;">
+        <div class="d-flex justify-content-between p-3 text-light bg-gradient" style="background-color: #023e8a;">
             <h1><a href="/vendaplus/" style="text-decoration: none; color:#ddd";>VPlus</a></h1>
-            <!-- <h5>Sistema para gestão de vendas</h5> -->
+            <div id="header" class="d-flex flex-row align-items-center" style="width: auto;">
+              <span class="me-2">Olá, <p class="fw-bold d-inline"> <?php echo isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Visitante'; ?></p></span>
+              <a href="login" class="ms-auto">
+                <button id="logout-btn" type="button" class="btn btn-warning">Logout</button>
+              </a>
+            </div>
         </div>
  
     <div class="container">

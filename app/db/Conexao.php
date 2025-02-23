@@ -1,6 +1,6 @@
 <?php
 
-include('config.php');
+require_once('config.php');
 
 class Conexao{
 
@@ -41,7 +41,7 @@ class Conexao{
             return $this->conn;
         }
         catch(PDOException $e){
-            die('Erroq na conexao com o banco: '.$e->getMessage());
+            die('Erro na conexao com o banco: '.$e->getMessage());
         }
 
     }

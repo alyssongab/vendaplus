@@ -1,4 +1,4 @@
-<?php require_once('header.php') ?>
+<?php session_start(); require_once 'header.php' ?>
 <main>
 
     <section class="mt-3 d-flex align-items-center justify-content-between">
