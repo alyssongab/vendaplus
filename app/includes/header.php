@@ -1,5 +1,5 @@
 <?php
-  require_once('../model/Usuario.php');
+  require_once '../model/Usuario.php';
   $status = Usuario::estaLogado();
   if(!$status){
     header("Location: login"); 

@@ -2,6 +2,12 @@
   RewriteEngine On
   RewriteBase /vendaplus/
 
+  # Redireciona a raiz (/) para /vendas
+  RewriteRule ^$ vendas [R=301,L]
+
+  # Especifica que index.php deve ser carregado por padrão
+  DirectoryIndex index.php
+
   # Se a requisição for para um arquivo ou diretório existente, não faça nada
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
@@ -13,8 +19,6 @@
   # Redireciona /vendas para app/includes/listagem.php
   RewriteRule ^vendas$ app/includes/listagem.php [L]
 
+  # Redireciona /login para app/view/login.php
   RewriteRule ^login$ app/view/login.php [L]
-
-  # Especifica que index.php deve ser carregado por padrão
-  DirectoryIndex index.php
 </IfModule>
