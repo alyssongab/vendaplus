@@ -20,6 +20,10 @@
         --bs-table-hover-bg:rgb(197, 214, 240);
       }
 
+      #pesquisa-input{
+        width: 60%;
+      }
+
       @media (max-width: 768px) {
       #tabela-vendas thead {
           display: none; /* Oculta o cabeçalho da tabela */
@@ -77,6 +81,34 @@
         font-size: 0.8rem;
       }
 
+      #pesquisar-span{ /* Ocuta a palavra 'pesquisar' */
+        display: none;
+      }
+
+      #pesquisa-area{
+        justify-content: space-between;
+      }
+
+      #pesquisa-input{ /* barra de pesquiar por cliente ocupa toda a largura */
+        width: 100%;
+      }
+
+    }
+
+    @media (max-width: 396px){ /* seção fica disposta em colunas para melhor visualização */
+      #above-table{
+        flex-direction: column;
+        gap: 10px;
+      }
+      pesquisa-input{
+        width: auto;
+      }
+    }
+
+    @media (max-width: 256px){
+      #header > span, p {
+        display: none;
+      }
     }
 
     </style>
