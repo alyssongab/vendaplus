@@ -60,7 +60,6 @@ class Conexao{
         }
         catch(PDOException $e){
             die('Erro: '.$e->getMessage());
-            return null;
         }
     }
 

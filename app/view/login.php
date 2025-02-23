@@ -89,7 +89,7 @@
                     <img src="app/assets/login.svg" alt="login-illustration">
                 </div>             
             </div>
-            <div id="img-container" class="col-md-6 text-center">
+            <div id="img-container" class="col-md-6 d-flex flex-column justify-content-center text-center">
                 <!-- titulo -->
                 <div id="login-box" class="text-start px-3 row mt-3">
                     <h3 class="border-bottom border-primary-subtle">VPlus</h1>
