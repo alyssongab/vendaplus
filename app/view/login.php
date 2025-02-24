@@ -113,8 +113,8 @@
                         <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua senha" required>
                     </div>
                     <!-- submit -->
-                     <div class="form-group">
-                        <button id="login-btn" type="button" class="btn btn-primary w-100">Entrar</button>
+                     <div class="form-group d-flex justify-content-center align-items-center">
+                        <button id="login-btn" type="button" class="btn btn-primary rounded-5 w-100">Entrar</button>
                      </div>
                 </div>
             </div>
