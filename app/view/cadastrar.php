@@ -11,7 +11,7 @@ if (!isset($_POST['produtos'], $_POST['valor'], $_POST['cliente'], $_POST['statu
 }
 
 include __DIR__.'/../includes/header.php';
-include __DIR__.'/../includes/formulario.php';
+include __DIR__.'/../view/formulario.php';
 ?>
 
 <!-- modal de confirmação de registro -->
@@ -23,7 +23,7 @@ include __DIR__.'/../includes/formulario.php';
         <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>A venda foi registrada com sucesso!</p>
+        <p id="msg-sucesso"></p>
       </div>
       <div class="p-3" id="modal-subcontent">
         <p></p>
@@ -50,6 +50,15 @@ include __DIR__.'/../includes/footer.php';
     
     const formData = new FormData(form);
 
+        // pega o valor
+        let valor = formData.get('valor');
+
+        // substitui o ponto por virgula
+        valor = valor.replace(',', '.');
+
+        // atualiza o valor para enviar ao backend
+        formData.set('valor', valor);
+
     fetch('app/controller/processa_venda.php', {
       method: 'POST',
       body: formData
@@ -59,11 +68,13 @@ include __DIR__.'/../includes/footer.php';
       console.log(data);
       const modal = new bootstrap.Modal(document.getElementById('modalVenda'));
       const subcontent = document.getElementById('modal-subcontent');
+      const msg = document.getElementById('msg-sucesso');
 
       subcontent.innerHTML = ''; // limpa o conteudo anterior
 
       // mostra a chave e valor dos dados recebidos
       if(data.cadastroSucesso){
+        msg.textContent = 'A venda foi registrada com sucesso!'
         for(let key in data.data){
           let value = data.data[key];
 

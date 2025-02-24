@@ -17,7 +17,7 @@
   RewriteRule ^venda$ app/view/cadastrar.php [L]
 
   # Redireciona /vendas para app/includes/listagem.php
-  RewriteRule ^vendas$ app/includes/listagem.php [L]
+  RewriteRule ^vendas$ app/view/listagem.php [L]
 
   # Redireciona /login para app/view/login.php
   RewriteRule ^login$ app/view/login.php [L]

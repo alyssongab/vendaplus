@@ -1,4 +1,4 @@
-<?php session_start(); require_once 'header.php';?>
+<?php session_start(); require_once '../includes/header.php';?>
 <main>
 
     <section id="above-table" class="mt-3 d-flex align-items-center justify-content-between">
@@ -191,4 +191,4 @@
 
 </script>
 
-<?php require_once 'footer.php';  ?>
+<?php require_once '../includes/footer.php';  ?>

@@ -10,7 +10,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         // sanitiza os dados
         $produtos = htmlspecialchars($_POST['produtos']);
-        $valor = filter_var($_POST['valor'], FILTER_VALIDATE_FLOAT);
+
+        $valor = str_replace(',', '.', $_POST['valor']);
+        $valor = filter_var($valor, FILTER_VALIDATE_FLOAT);
+
         $cliente = htmlspecialchars($_POST['cliente']);
         $status = htmlspecialchars($_POST['status']);
 
