@@ -14,6 +14,7 @@
     <title>Vendaplus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
+      
       textarea{
         min-height: 50px;
         resize: none;
@@ -114,9 +115,22 @@
     }
 
     @media (max-width: 256px){
-      #header > span, p {
+      #spann, nome {
         display: none;
       }
+    }
+
+    @media (max-width: 276px){
+      footer {
+        display: none;
+      }
+
+      #pagination, #pag {
+        font-size: 0.8rem;
+        height: fit-content;
+        width: fit-content;
+      }
+
     }
 
     #github{
@@ -130,7 +144,7 @@
         <div class="d-flex justify-content-between p-3 text-light bg-gradient" style="background-color: #023e8a;">
             <h1><a href="/vendaplus/vendas" style="text-decoration: none; color:#ddd";>VPlus</a></h1>
             <div id="header" class="d-flex flex-row align-items-center" style="width: auto;">
-              <span class="me-2">Olá, <p class="fw-bold d-inline"> <?php echo isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Visitante'; ?></p></span>
+              <span id="spann" class="me-2">Olá, <p id="nome" class="fw-bold d-inline"> <?php echo isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Visitante'; ?></p></span>
               <a href="login" class="ms-auto">
                 <button id="logout-btn" type="button" class="btn btn-warning">Logout</button>
               </a>
