@@ -1,6 +1,6 @@
 <?php
-
-require __DIR__.'/../../vendor/autoload.php';
+session_start();
+require_once '../includes/header.php';
 
 $cadastroSucesso = true;
 
@@ -10,7 +10,6 @@ if (!isset($_POST['produtos'], $_POST['valor'], $_POST['cliente'], $_POST['statu
     $data = ['erro' => 'Campos obrigatórios não preenchidos'];
 }
 
-include __DIR__.'/../includes/header.php';
 include __DIR__.'/../view/formulario.php';
 ?>
 

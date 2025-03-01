@@ -1,3 +1,5 @@
+<?php session_start(); require_once '../includes/header.php';?>
+
 <main>
     <section class="mt-3">
         <a href="/vendaplus/vendas">

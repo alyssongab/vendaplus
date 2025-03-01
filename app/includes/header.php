@@ -151,5 +151,33 @@
             </div>
         </div>
  
+    <script>
+        // fazer logout do sistema
+        const logout = document.getElementById("logout-btn");
+
+        logout.addEventListener("click", function(){
+            
+            fetch("app/controller/auth_controller.php?action=logout", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success){
+                    console.log(data.message);
+                    window.location.href = "login";
+                }
+                else{
+                    console.log(data.message);
+                }
+            })
+            .catch((error) =>{
+                console.error("Fetch error: ", error);
+            })
+        });
+    </script>
+
     <div class="container">
      
