@@ -114,7 +114,7 @@
                     </div>
                     <!-- submit -->
                      <div class="form-group d-flex justify-content-center align-items-center">
-                        <button id="login-btn" type="button" class="btn btn-primary rounded-5 w-100">Entrar</button>
+                        <button id="login-btn" type="submit" class="btn btn-primary rounded-5 w-100">Entrar</button>
                      </div>
                 </div>
             </div>

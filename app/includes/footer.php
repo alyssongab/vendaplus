@@ -7,7 +7,7 @@
   
   <footer class="fixed-bottom">
       <div>
-        &copy; Desenvolvido por <a id="github" href="www.github.com/alyssongab">Alysson Gabriel</a>
+        &copy; Desenvolvido por <a id="github" href="https://www.linkedin.com/in/alyssongab/" target="_blank">Alysson Gabriel</a>
       </div>
   </footer>
 

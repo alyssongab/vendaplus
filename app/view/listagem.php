@@ -43,6 +43,8 @@
 </main>
 
 <script>
+    window.onload = () => listarVendas();
+    
     let paginaAtual = 1
     const registrosPorPagina = 5; // Defina o número máximo de registros que você quer exibir
     const alturaLinha = 40; // Altura aproximada de cada linha da tabela
@@ -160,8 +162,6 @@
         const customerName = pesquisaInput.value;
         listarVendas(1, customerName);
     });
-
-    window.onload = () => listarVendas();
 
 </script>
 

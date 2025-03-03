@@ -163,7 +163,7 @@
   </head>
   <body class="bg-dark">
         <div class="d-flex justify-content-between p-3 text-light bg-gradient" style="background-color: #023e8a;">
-            <h1><a href="/vendaplus/vendas" style="text-decoration: none; color:#ddd";>VPlus</a></h1>
+            <h2><a href="/vendaplus/vendas" style="text-decoration: none; color:#ddd";>VPlus</a></h2>
             <div id="header" class="d-flex flex-row align-items-center" style="width: auto;">
               <span id="spann" class="me-2">Olá, <p id="nome" class="fw-bold d-inline"> <?php echo isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Visitante'; ?></p></span>
               <a href="login" class="ms-auto">
