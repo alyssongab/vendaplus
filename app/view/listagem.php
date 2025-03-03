@@ -34,9 +34,9 @@
                 </tbody>
             </table>
         </div>
-        <div class="pagination-container d-flex flex-column align-items-end">
+        <div class="pagination-container d-flex flex-column align-items-end mb-4">
             <div id="pagination" class="pagination"></div>
-            <p class="text-light pt-2" id="pag"></p>
+            <p class="text-light pt-1" id="pag"></p>
         </div>
     </section>
 

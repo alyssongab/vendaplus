@@ -14,7 +14,28 @@
     <title>Vendaplus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-      
+
+      html, body{
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+          flex: 1; /* Isso faz o conteúdo ocupar o espaço restante e empurra o footer para baixo */
+      }
+
+      footer {
+        width: 100%;
+        background-color: #333; 
+        color: white;
+        text-align: center;
+        padding: 5px 0;
+      }
+
+
       textarea{
         min-height: 50px;
         resize: none;
@@ -146,7 +167,7 @@
             <div id="header" class="d-flex flex-row align-items-center" style="width: auto;">
               <span id="spann" class="me-2">Olá, <p id="nome" class="fw-bold d-inline"> <?php echo isset($_SESSION['nome']) ? htmlspecialchars($_SESSION['nome']) : 'Visitante'; ?></p></span>
               <a href="login" class="ms-auto">
-                <button id="logout-btn" type="button" class="btn btn-warning">Logout</button>
+                <button id="logout-btn" type="button" class="btn btn-warning">Sair</button>
               </a>
             </div>
         </div>
