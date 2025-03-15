@@ -70,6 +70,18 @@
         .then(data => {
             tbody.innerHTML = '';
 
+            // Verifica se existem vendas (no caso, se não existem*)
+            if (!data.vendas || data.vendas.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="5" class="text-center p-3">
+                        Não há vendas cadastradas no sistema.
+                    </td>
+                `;
+                tbody.appendChild(row);
+                return;
+            }
+
             // itera os dados recebidos e adiciona novas linhas na tabela
             data.vendas.forEach(venda => {
                 // variaveis para o input radio
@@ -94,7 +106,7 @@
                 }
                 else{
                     row.innerHTML=`
-                        <p class="text-center"> Não há vendas cadastradas no sistema. </p>
+                        <p class="text-center text-light"> Não há vendas cadastradas no sistema. </p>
                     `
                 }
                 

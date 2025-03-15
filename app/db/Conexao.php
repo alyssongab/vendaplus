@@ -31,6 +31,7 @@ class Conexao{
 
     /**
      * Método responsável por criar conexao com o banco
+     * @return PDO
      */
     public function conectar(){
 
