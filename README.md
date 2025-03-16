@@ -74,6 +74,20 @@ Obs: É possível verificar as credenciais de login no banco de dados também.
 ## Tabela com vendas
 ![vendas](screenshots/vendas.png)
 
+## Contribuição
+
+Sinta-se livre para contribuir com o projeto :D
+
+1. Faça um fork do projeto.
+
+2. Crie uma branch para sua feature (git checkout -b feature/NovaFeature).
+
+3. Commit suas mudanças (git commit -m 'Adicionando NovaFeature').
+
+4. Faça um push para a branch (git push origin feature/NovaFeature).
+
+5. Abra um Pull Request.
+
 ## Licença
 Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
 
