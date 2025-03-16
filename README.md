@@ -40,9 +40,8 @@ Aqui estão as tecnologias e ferramentas utilizadas no projeto:
 Antes de começar, certifique-se de ter o **PHP** instalado e que o servidor **Apache** e o **MySQL** estão rodando.
 
 ## 1. Clonar o repositório
-- **OBSERVAÇÃO: O clone deve ser feito na pasta `htdocs`, dentro da pasta `xampp`.
-<br>
-O path normalmente é: `C/xampp/htdocs/vendaplus`**
+- **OBSERVAÇÃO: O clone deve ser feito na pasta `htdocs`, dentro da pasta `xampp`.**\
+**O path normalmente é: `C/xampp/htdocs/vendaplus`**
 
 ```bash
 git clone https://github.com/alyssongab/vendaplus.git
