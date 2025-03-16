@@ -1,12 +1,13 @@
-# VPlus - Gerenciamento de vendas
+# 💼VPlus - Gerenciamento de vendas
 
-![Badge](https://img.shields.io/badge/Status-Em%20Desenvolvimento-green)  
-![Badge](https://img.shields.io/badge/Licença-MIT-blue)  
-![Badge](https://img.shields.io/badge/Version-1.0.0-orange) 
+![Badge](https://img.shields.io/badge/Status-Finalizado-green)
+![Badge](https://img.shields.io/badge/Licença-MIT-blue)
+![Badge](https://img.shields.io/badge/Version-1.0.0-orange)     
 
-Vendaplus (ou VPlus) é um sistema com o propósito de gerenciar vendas de forma simples e fácil, oferecendo uma experiência mais agradável para o usuário.
 
-## Índice
+Vendaplus (ou VPlus) é um sistema com o propósito de gerenciar vendas de forma simples e fácil, oferecendo uma experiência mais agradável e limpa para o usuário.
+
+## 📖Índice
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Instalação](#instalação)
 - [Funcionalidades](#funcionalidades)
@@ -15,7 +16,7 @@ Vendaplus (ou VPlus) é um sistema com o propósito de gerenciar vendas de forma
 - [Licença](#licença)
 - [Contato](#contato)
 
-## Tecnologias Utilizadas
+## 🛠️Tecnologias Utilizadas
 Aqui estão as tecnologias e ferramentas utilizadas no projeto:
 
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
@@ -32,11 +33,17 @@ Aqui estão as tecnologias e ferramentas utilizadas no projeto:
 - **JavaScript**: Utilizado para interatividade no frontend (dentro de tags `<script>` no PHP).
 - **Apache**: Servidor web utilizado para hospedar e rodar o projeto.
 
-## Instalação
+## ⚙️Instalação
 
-Obs: Antes de começar, certifique-se que o servidor Apache e o MySQL estão rodando.
+### ⚠️Observações importantes:
+
+Antes de começar, certifique-se de ter o **PHP** instalado e que o servidor **Apache** e o **MySQL** estão rodando.
 
 ## 1. Clonar o repositório
+- **OBSERVAÇÃO: O clone deve ser feito na pasta `htdocs`, dentro da pasta `xampp`.
+<br>
+O path normalmente é: `C/xampp/htdocs/vendaplus`**
+
 ```bash
 git clone https://github.com/alyssongab/vendaplus.git
 ```
@@ -45,14 +52,17 @@ git clone https://github.com/alyssongab/vendaplus.git
 vendaplus/app/db/config.php
 ```
 
-## 3. Inserir as credenciais do seu banco de dados:
+## 3. Inserir as credenciais do seu banco de dados no arquivo config.php:
 ```php
 <?php
 define("DB_USER","seu_usuario");
 define("DB_PASSWORD","sua_senha");
 ```
+    Substitua apenas "seu_usuario" e "sua_senha" pelos seus respectivos dados. 
 ## 4. Importar o arquivo .sql no seu banco de dados:
-Após importar, verifique a conexão com o banco, basta rodar o arquivo **'teste_conexao.php'**
+- `vendaplus.sql`
+- O arquivo está disponível na pasta raíz do projeto.<br>
+- Após importar, verifique a conexão com o banco, basta rodar o arquivo **'teste_conexao.php'**
 
 ## 5. Fazer login com as seguintes credenciais:
 - **email:** `vplus@admin`
@@ -60,23 +70,31 @@ Após importar, verifique a conexão com o banco, basta rodar o arquivo **'teste
 
 Obs: É possível verificar as credenciais de login no banco de dados também.
 
-## Demo (Screenshots)
+## 🚀Funcionalidades
+### ✅ **Autenticação de usuários** 
+- Obs: no momento, a feature de criar novos usuários no sistema ainda não está disponível, portanto as credencias para logar estão listadas no guia de instalação e uso.
+### ✅ **Registrar e listar vendas** 
+- A feature de exclusão de vendas não está disponível devido as regras de negócio.
+### ✅ **Filtrar por nome do cliente**
+### ✅ **Atualizar status de vendas**
 
-## Login
+## 📸 Demo (Screenshots)
+
+- ### Login
 ![login](screenshots/login.png)
 
-## Tabela vazia
+- ### Tabela vazia
 ![tabela](screenshots/vendasvazia.png)
 
-## Registro de nova venda
+- ### Registro de nova venda
 ![registrar](screenshots/registrar.png)
 
-## Tabela com vendas
+- ### Tabela com vendas
 ![vendas](screenshots/vendas.png)
 
-## Contribuição
+## 🤝 Contribuição
 
-Sinta-se livre para contribuir com o projeto :D
+Sinta-se livre para contribuir com o projeto. 🤓
 
 1. Faça um fork do projeto.
 
@@ -88,10 +106,10 @@ Sinta-se livre para contribuir com o projeto :D
 
 5. Abra um Pull Request.
 
-## Licença
+## 📜 Licença
 Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para mais detalhes.
 
-## Contato
+## ✉️ Contato
 Alysson Gabriel - https://linkedin.com/in/alyssongab
 
 Link do Projeto: https://github.com/alyssongab/vendaplus
