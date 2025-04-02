@@ -8,8 +8,8 @@
 Vendaplus (ou VPlus) é um sistema com o propósito de gerenciar vendas de forma simples e fácil, oferecendo uma experiência mais agradável e limpa para o usuário.
 
 ## 📖Índice
-- [🛠️Tecnologias Utilizadas](#%EF%B8%8F-tecnologias-utilizadas)
-- [⚙️Instalação](#%EF%B8%8F-instalação)
+- [🛠️Tecnologias Utilizadas](EF%B8%8Ftecnologias-utilizadas)
+- [⚙️Instalação](#%EF%B8%8Finstalação)
 - [🚀Funcionalidades](#funcionalidades)
 - [📸 Demo (Screenshots)](#-demo-screenshots)
 - [🤝 Contribuição](#-contribuição)
