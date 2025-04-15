@@ -44,6 +44,7 @@ Antes de começar, certifique-se de ter o **PHP** instalado e que o servidor **A
 **O path normalmente é: `C/xampp/htdocs/vendaplus`**
 
 ```bash
+# C/xampp/htdocs/vendaplus
 git clone https://github.com/alyssongab/vendaplus.git
 ```
 ## 2. Criar um arquivo 'config.php' na pasta db/:
